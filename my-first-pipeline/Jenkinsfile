@@ -11,11 +11,10 @@
 //   }
 // }
 
-
 pipeline {
   agent none
   stages {
-    stage('pull python image') {
+    stage('Build') {
       agent {
         docker { image 'python3:latest' }
       }
