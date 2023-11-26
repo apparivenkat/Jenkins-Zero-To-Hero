@@ -15,12 +15,15 @@
 pipeline {
   agent none
   stages {
-    stage('Back-end') {
+    stage('pull python image') {
       agent {
-        docker { image 'python:latest' }
+        docker { image 'python3:latest' }
+      }
+      steps{
+        git branch: 'main', url : "https://github.com/apparivenkat/Jenkins-Zero-To-Hero.git"
       }
       steps {
-        sh 'python3 demo.py'
+        sh 'python3 my-first-pipeline/demo.py'
       }
     }
   }
