@@ -1,11 +1,26 @@
+// pipeline {
+//   agent {
+//     docker { image 'node:16-alpine' }
+//   }
+//   stages {
+//     stage('Test') {
+//       steps {
+//         sh 'node --version'
+//       }
+//     }
+//   }
+// }
+
+
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
-  }
+  agent none
   stages {
-    stage('Test') {
+    stage('Back-end') {
+      agent {
+        docker { image 'python3:latest' }
+      }
       steps {
-        sh 'node --version'
+        sh 'python3 demo.py'
       }
     }
   }
